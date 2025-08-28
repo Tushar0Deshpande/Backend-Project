@@ -12,6 +12,16 @@ dotenv.config({
 })
 
 connectDB()
+// these then and catch used to catch any error in connecting db
+// after connecting db recive from db and then app will listen
+.then(()=>{
+    app.listen(process.env.PORT || 8000, ()=>{
+        console.log(`Server is running at ${process.env.PORT}`)
+    })
+})
+.catch((err)=>{
+    console.log("MONGODB connection failed :",err);
+})
 
 
 
@@ -19,7 +29,7 @@ connectDB()
 
 
 
-
+//db can be connected 2 ways 1 by creating seperate file and importing into index
 
 /*  
 const app = express()
